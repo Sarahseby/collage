@@ -1,0 +1,259 @@
+{% load static %}
+
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var sub = {
+        "btech":{
+        "cse","civil"},
+        "bcom":{
+        "abc","uu"}
+        }
+        windows.onload=function(){
+        var subjectsel=document.getElementById("subject");
+        var toic=document.getElementById("topic");
+    </script>
+    <style>
+        .message {
+        font-size:20px;
+        color:green;
+        position:absolute;
+        animation:buttons .3s linear;
+        display:none;
+        }
+
+        input[type=text],select,email,number,date{
+        width:70%;
+        padding:12px 20px;
+        margin:8px 0;
+        display:inline-block;
+        border:1px solid #ccc;
+        border-radius:4p;
+        box-sizing:border-box;
+        }
+         input[type=email]{
+        width:70%;
+        padding:12px 20px;
+        margin:8px 0;
+        display:inline-block;
+        border:1px solid #ccc;
+        border-radius:4p;
+        box-sizing:border-box;
+        }
+         input[type=date]{
+        width:70%;
+        padding:12px 20px;
+        margin:8px 0;
+        display:inline-block;
+        border:1px solid #ccc;
+        border-radius:4p;
+        box-sizing:border-box;
+        }
+         input[type=number]{
+        width:70%;
+        padding:12px 20px;
+        margin:8px 0;
+        display:inline-block;
+        border:1px solid #ccc;
+        border-radius:4p;
+        box-sizing:border-box;
+        }
+        input[type=tel]{
+        width:70%;
+        padding:12px 20px;
+        margin:8px 0;
+        display:inline-block;
+        border:1px solid #ccc;
+        border-radius:4p;
+        box-sizing:border-box;
+        }
+        input[type=submit]:hover{
+        background:yellow;
+        align:center
+        }
+        input[type=text]:hover{
+        background:papayawhip;
+        }
+        input[type=email]:hover{
+        background:papayawhip;
+        }
+        input[type=number]:hover{
+        background:papayawhip;
+        }
+        input[type=date]:hover{
+        background:papayawhip;
+        }
+        input[type=text] select:hover{
+        background:papayawhip;
+        }
+        form{
+        width:800px;
+        background-color:silver;
+        }
+        body{
+        text-align:center;
+        }
+
+        }
+        .card {
+        padding:80px;
+        padding-left:300px;
+        box-shadow:2px 2px 10px magenta;
+         background-color:rebeccapurple;
+        }
+        .navbar {
+        height:100px;
+        }
+         .button {
+         width:70%;
+         cursor:pointer;
+         margin-bottom:20px;
+
+         }
+         .button button {
+         padding:10px
+         width:70%;
+         font-size:20px;
+         color:#fff;
+         background-color:rebeccapurple;
+         border:none;
+         outline:none;
+
+         }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="">
+</head>
+<body>
+
+<!-- Image and text -->
+<nav class="navbar" style="background:rebeccapurple">
+  <a class="navbar-brand" href="#">
+   <h2 style="color:white"> Collage store</h2>
+
+  </a>
+
+{% for msg in messages %}
+<h5 style="color:springgreen">{{msg}}<br>
+<a  style="color:dodgerblue" href="/">Return to Home</a></h5>
+{% endfor %}
+     <a href="/" class="btn btn-primary">Logout</a>
+
+</nav>
+{% block body %}
+{% endblock %}
+
+<div class="card" style="padding-left:300px" >
+    <h4 style="text-align:center"></h4><br>
+<form action="" method="post" style="text-align:center">
+    <h2 style="color:silver">Form to Fill</h2>
+    {% csrf_token %}
+    <div class="field fname">
+                <div class="input-area">
+                    <label><h5>Name</h5></label>
+                     <input type="text"name="username" placeholder="username" id="username" required>
+                </div>
+            </div>
+    <div class="field fname">
+                <div class="input-area">
+                    <label><h5 >DOB :</h5></label>
+                     <input type="date"name="date" id="dob">
+                </div>
+            </div>
+    <div class="field fname">
+                <div class="input-area">
+                    <label><h5>Age :</h5></label>
+                     <input type="number"name="age" placeholder="age" id="age">
+                </div>
+            </div><br>
+    <div class="field fname">
+                <div class="input-area">
+                    <label><h5 >Gender</h5></label>
+                     <input type="radio"name="gender">Male
+                     <input type="radio"name="gender">Female
+                    <input type="radio"name="gender">Other
+                </div>
+            </div>
+       <div class="field fname">
+                <div class="input-area">
+                    <label><h5 >Ph_no</h5></label>
+                     <input type="tel"name="age" placeholder="1234567890" id="no" pattern="[0-9]{10}">
+                </div>
+            </div>
+    <div class="field fname">
+                <div class="input-area">
+<label><h5 >Email</h5></label>
+                     <input type="email"name="email" placeholder="email" id="email" required>
+                </div>
+            </div><br>
+
+                    <label for="dept"><h5 >Dept:</h5></label>
+                    <select id="dept" name="dept">
+                        <option value="0"></option>
+                       <option value="1">B.Tech</option>
+                       <option value="2">B.Com</option>
+                        <option value="4">B.Sc</option>
+                    </select>
+             <br>
+       <div class="field fname">
+                <div class="input-area">
+                    <label for="course"><h5 >Cour-<br>se</h5></label>
+                     <select id="course" name="course">
+                       <option value=""disabled selected>--Select department first</option>
+
+                         <optgroup label="B.Tech">
+                             <option value="Computer">Computer Science</option>
+                             <option value="Civil">Civil</option>
+                             <option value="ECE">ECE</option>
+                             <option value="EEE">EEE</option>
+                             <option value="Mechanical">Mech</option>
+                         </optgroup>
+                       <optgroup label="B.Com">
+                           <option value="Accountancy">Accountancy</option>
+                         <option value="Finance">Finance</option>
+                           <option value="Marketing">Marketing</option>
+                       </optgroup>
+
+                         <optgroup label="B.Sc">
+                            <option value="Agriculture">Agriculture</option>
+                             <option value="Zoology">Zoology</option>
+                              <option value="Physics">Physics</option>
+                         </optgroup>
+                    </select>
+                </div>
+            </div>
+       <div class="field fname">
+                <div class="input-area">
+                    <label><h5 >Pur-<br>pose:</h5></label>
+                      <select id="p">
+                       <option value="kk"></option>
+                       <option value="commerce">For enquiry</option>
+                       <option value="jjj">Place Order</option>
+                           <option value="jjj">Return</option>
+                    </select>
+                </div>
+            </div><br>
+    <div class="field fname">
+                <div class="input-area">
+<label><h5 >Materials  :</h5></label>
+                      <input type="checkbox">  Pen
+                     <input type="checkbox">   Books
+                     <input type="checkbox">   Exam paper
+                    <input type="checkbox">   Calcutator
+                    <input type="checkbox">   Bag
+                    <input type="checkbox">   Graph paper
+                    <input type="checkbox">   Record
+                </div>
+            </div>
+
+    <br>
+  <input type="submit">
+<br>
+    <br>
+</form>
+
+</div>
+</body>
+</html>
